@@ -1,2 +1,4 @@
-package com.udacity.jwdnd.c1.review;public class SignupPage {
+package com.udacity.jwdnd.c1.review;
+
+public class SignupPage {
 }
