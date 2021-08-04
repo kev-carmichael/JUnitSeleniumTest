@@ -13,7 +13,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ReviewApplicationTests {
+public class ReviewApplicationTests {
 	@LocalServerPort
 	private Integer port;
 
@@ -21,9 +21,9 @@ class ReviewApplicationTests {
 	public String baseUrl;
 
 	@BeforeAll
-	public void beforeAll(){
+	public static void beforeAll(){
 		System.setProperty("webdriver.edge.driver", "C:\\Users\\KC135\\Downloads\\edgedriver_win64\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		driver = new EdgeDriver();
 	}
 
 	@BeforeEach
@@ -32,7 +32,7 @@ class ReviewApplicationTests {
 	}
 
 	@AfterAll
-	public void afterAll(){
+	public static void afterAll(){
 		driver.quit();
 		driver = null;
 	}
