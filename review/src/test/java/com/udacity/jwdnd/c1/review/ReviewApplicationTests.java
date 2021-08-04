@@ -39,23 +39,28 @@ public class ReviewApplicationTests {
 
 	@Test
 	//done in one test method to replicate sign in, login and chat(send message) in one operation in order
-	public void testSignupLoginSubmitMessage(){
+	public void testSignupLoginSubmitMessage() throws InterruptedException{
 		String username = "kevcar";
 		String password = "123";
 		String messageText = "Howdy!";
 
 		driver.get(baseUrl + "/signup");
+		Thread.sleep(2000);
 
 		SignupPage signupPage = new SignupPage(driver);
 		signupPage.signup("Kev", "Carmichael", username, password);
+		Thread.sleep(2000);
 
 		driver.get(baseUrl + "/login");
+		Thread.sleep(2000);
 
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.login(username, password);
+		Thread.sleep(2000);
 
 		ChatPage chatPage = new ChatPage(driver);
 		chatPage.sendChatMessage(messageText);
+		Thread.sleep(2000);
 
 		ChatMessage sentMessage = chatPage.getFirstMessage();
 
